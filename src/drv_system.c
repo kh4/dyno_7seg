@@ -12,10 +12,23 @@ static void cycleCounterInit(void)
     usTicks = clocks.SYSCLK_Frequency / 1000000;
 }
 
+void (*hooks[4])() = {0,0,0,0};
+
 // SysTick
 void SysTick_Handler(void)
 {
     sysTickUptime++;
+    for (int i = 0; i < 4; i++) {
+      if (hooks[i]) hooks[i]();
+    }
+}
+
+void systickAddHook(void (*f)()) {
+  for (int i = 0; i < 4; i++)
+    if (!hooks[i]) {
+      hooks[i] = f;
+      break;
+    }
 }
 
 // Return system uptime in microseconds (rollover in 70minutes)

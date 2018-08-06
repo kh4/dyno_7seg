@@ -12,3 +12,6 @@ void failureMode(uint8_t mode);
 
 // bootloader/IAP
 void systemReset(bool toBootloader);
+
+// systick hooks
+void systickAddHook(void (*f)());

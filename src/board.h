@@ -23,4 +23,5 @@
 #include "drv_system.h"         // timers, delays, etc
 #include "drv_uart.h"
 #include "drv_led_pc13.h"
-
+#include "drv_adc.h"
+#include "drv_7seg8.h"
