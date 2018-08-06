@@ -1,15 +1,10 @@
-==================
-stm32f103_template
-==================
+=====================================================
+stm32f103 based dual display with difference for Dyno
+=====================================================
 
-This project is a rather minimal template for developing small applications
-for STM32F103 processor.
-
-Only active drivers for now are
-- UART1 driver
-- LED @PC13 driver
-
-A simple timer providing micros() and millis() counted from boot is provided.
+ADC samples pins A0 and A1 and shows the results on a
+7 segment LED display attached to GPIO pins, see drv_7seg.c for
+display details.
 
 Makefile has additional targets for flashing and debugging
   flashn - flash using stm32loader (and do not send R to enter bootloader)
