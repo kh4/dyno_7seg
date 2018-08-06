@@ -1,0 +1,20 @@
+==================
+stm32f103_template
+==================
+
+This project is a rather minimal template for developing small applications
+for STM32F103 processor.
+
+Only active drivers for now are
+- UART1 driver
+- LED @PC13 driver
+
+A simple timer providing micros() and millis() counted from boot is provided.
+
+Makefile has additional targets for flashing and debugging
+  flashn - flash using stm32loader (and do not send R to enter bootloader)
+  flash  - as above but sends 'R' to enter bootloader, template code will
+           wait for R for 2 seconds after boot
+  stlink - flash using stlinkv2, needs openocd installed
+  gdb    - compile with debuginfo, flash with stlinkv2 and start gdb thru stlink
+
