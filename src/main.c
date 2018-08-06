@@ -62,9 +62,9 @@ int main(void)
 	if (differ > 99) differ = 99;
 
 	if (left > 1000) {
-	  sevenSegSet(0,' ',0);
-	  sevenSegSet(1,'O',0);
-	  sevenSegSet(2,'L',0);
+	  sevenSegSet(0,'-',0);
+	  sevenSegSet(1,'-',0);
+	  sevenSegSet(2,'-',0);
 	} else {
 	  char s[4];
 	  tfp_sprintf(s,"%3d",left);
@@ -73,9 +73,9 @@ int main(void)
 	  sevenSegSet(2,s[2],0);
 	}
 	if (right > 1000) {
-	  sevenSegSet(3,' ',0);
-	  sevenSegSet(4,'O',0);
-	  sevenSegSet(5,'L',0);
+	  sevenSegSet(3,'-',0);
+	  sevenSegSet(4,'-',0);
+	  sevenSegSet(5,'-',0);
 	} else {
 	  char s[4];
 	  tfp_sprintf(s,"%3d",right);

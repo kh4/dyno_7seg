@@ -70,39 +70,17 @@ uint8_t charToSegs(char c, bool dp)
 {
   uint8_t r = dp ? 0x08 : 0;
   switch (c) {
-  case '0':
-    r |= 0xf3;
-    break;
-  case '1':
-    r |= 0x60;
-    break;
-  case '2':
-    r |= 0xd5;
-    break;
-  case '3':
-    r |= 0xf4;
-    break;
-  case '4':
-    r |= 0x66;
-    break;
-  case '5':
-    r |= 0xb6;
-    break;
-  case '6':
-    r |= 0xb7;
-    break;
-  case '7':
-    r |= 0xe0;
-    break;
-  case '8':
-    r |= 0xf7;
-    break;
-  case '9':
-    r |= 0xf6;
-    break;
-  case '-':
-    r |= 0x04;
-    break;
+  case '0': r |= 0xf3; break;
+  case '1': r |= 0x60; break;
+  case '2': r |= 0xd5; break;
+  case '3': r |= 0xf4; break;
+  case '4': r |= 0x66; break;
+  case '5': r |= 0xb6; break;
+  case '6': r |= 0xb7; break;
+  case '7': r |= 0xe0; break;
+  case '8': r |= 0xf7; break;
+  case '9': r |= 0xf6; break;
+  case '-': r |= 0x04; break;
   case 0x00:
   case ' ':
   default:
