@@ -15,14 +15,29 @@ void checkBootLoaderEntry(bool wait)
   }  while (wait && ((millis() - start) < 2000));
 }
 
-
+uint32_t v1sum = 0, v2sum = 0;
+uint32_t vcount = 0;
 uint16_t v1 = 0, v2 = 0;
 
+volatile bool okToSample = 1;
 
+// Called by interrupt
 void handleValuesFromADC(uint16_t *_values)
 {
-  v1 = _values[0];
-  v2 = _values[1];
+  if (okToSample) {
+    v1sum += _values[0];
+    v2sum += _values[1];
+    vcount++;
+  }
+}
+
+void updateVals()
+{
+  okToSample = 0;
+  v1 = v1sum / vcount;
+  v2 = v2sum / vcount;
+  vcount = v1sum = v2sum = 0;
+  okToSample = 1;
 }
 
 
@@ -48,6 +63,7 @@ int main(void)
       modul++;
       */
       {
+	updateVals();
 	// calculate values to show
 	uint32_t left = v1, right = v2;
 	uint32_t bigger, differ;
